@@ -1,6 +1,12 @@
 // This JS file is used for the browser-bsed game, Robot Gladiators
 // Written by Tyler Evans
 
+var randomNumber = function (min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+};
+
 var fight = function (enemy) {
     while (playerInfo.health > 0 && enemy.health > 0) {
         // ask player if they'd like to fight or run
@@ -155,14 +161,26 @@ var shop = function () {
     }
 };
 
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
+// END GAME FUNCTIONS
 
-    return value;
-}
+// function to set name
+var getPlayerName = function() {
+    var name = "";
 
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+
+    return name;
+};
+
+// GAME INFORMATION / VARIABLES
+
+// player information
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -208,4 +226,12 @@ var enemyInfo = [
     }
 ];
 
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
+
+// END GAME INFORMATION / VARIABLES
+
+// RUN GAME
 startGame();
