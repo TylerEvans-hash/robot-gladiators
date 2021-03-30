@@ -157,7 +157,7 @@ var shop = function () {
             break;
         case "UPGRADE":
         case "upgrade":
-            if (playerMoney >= 0) {
+            if (playerMoney >= 7) {
                 window.alert("Upgrading player's attack by 6 for 7 dollars.");
 
                 // increase attack and decrease money
@@ -180,8 +180,6 @@ var shop = function () {
 
             // cal shop() again to force player to pick a vaild option
             shop();
-
-            console.log("playerMoney", playerMoney);
             break;
     }
 };
